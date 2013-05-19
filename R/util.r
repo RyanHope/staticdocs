@@ -46,3 +46,7 @@ dir.exists <- function(x) {
   res <- file.exists(x) & file.info(x)$isdir
   setNames(res, x)
 }
+
+cloak_email <- function(x){
+	sub('@', ' at ', x, fixed=TRUE)
+}
