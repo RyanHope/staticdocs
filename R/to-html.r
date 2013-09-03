@@ -469,7 +469,6 @@ parse_descriptions <- function(rd, ...) {
   items <- split(rd, group)
   
   li <- vapply(items, function(x) {
-    print(x)
     str_c("<dt>", to_html.TEXT(x[[1]][1], ...), "</dt><dd>", to_html.TEXT(x[[1]][-1], ...), "</dd>\n")
   }, FUN.VALUE = character(1))
   
