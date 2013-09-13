@@ -35,6 +35,7 @@ to_html.Rd_doc <- function(x, ...) {
   out$title <- to_html(get_tag("title"), ...)
   out$aliases <- vapply(get_tags("alias"), to_html, character(1), ...)
   out$keywords <- vapply(get_tags("keyword"), to_html, character(1), ...)
+  out$description <- to_html(get_tag("description"), ...)
 
   out$usage <- to_html(get_tag("usage"), ...)
   out$arguments <- to_html(get_tag("arguments"), ...)
@@ -48,8 +49,8 @@ to_html.Rd_doc <- function(x, ...) {
   
   # Everything else stays in original order, and becomes a list of sections.
   sections <- x[!(tags %in% c("name", "title", "alias", "keyword",
-    "usage", "author", "seealso", "arguments", "examples"))]
-  out$sections <- compact(to_html(sections, topic = out$name, ...))
+    "usage", "author", "seealso", "arguments", "examples", "description"))]
+  out$sections <- compact(to_html(sections, topic = out$name, ...))[-1]
   
   out
 }
@@ -144,14 +145,13 @@ to_html.keyword <- function(x, ...) unlist(to_html.list(x, ...))
 to_html.seealso <- function(x, ...) to_html.TEXT(x, ...)
 #' @S3method to_html author
 to_html.author <- function(x, ...) to_html.TEXT(x, ...)
-
+#' @S3method to_html description
+to_html.description <- function(x, ...) to_html.TEXT(x, ...)
 
 # Sections get a element called text and an element called content, which
 # contains a list of paragraphs.
 #' @S3method to_html details
 to_html.details <- function(x, ...) parse_section(x, "Details", ...)
-#' @S3method to_html description
-to_html.description <- function(x, ...) parse_section(x, "Description", ...)
 #' @S3method to_html value
 to_html.value <- function(x, ...) parse_section(x, "Value", ...)
 #' @S3method to_html references
