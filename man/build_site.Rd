@@ -2,7 +2,7 @@
 \name{build_site}
 \alias{build_package}
 \alias{build_site}
-\alias{staticdocs-package}
+\alias{staticdocs2-package}
 \title{Build complete static documentation for a package.}
 \usage{
 build_site(pkg = ".", ..., launch = interactive())

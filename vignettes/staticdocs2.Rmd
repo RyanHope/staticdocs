@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   error = FALSE,
   tidy = FALSE
 )
-library(staticdocs)
+library(staticdocs2)
 ```
 
 # Staticdocs
