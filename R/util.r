@@ -1,11 +1,11 @@
 #' @importFrom devtools dev_meta
 inst_path <- function() {
-  if (is.null(dev_meta("staticdocs"))) {
+  if (is.null(dev_meta("staticdocs2"))) {
     # staticdocs is probably installed
-    system.file(package = "staticdocs")
+    system.file(package = "staticdocs2")
   } else {
     # staticdocs was probably loaded with devtools
-    file.path(getNamespaceInfo("staticdocs", "path"), "inst")
+    file.path(getNamespaceInfo("staticdocs2", "path"), "inst")
   }
 }
 
