@@ -452,7 +452,6 @@ simple_tags <- list(
   "code" =         c("<code>", "</code>"),
   "command" =      c("<code>", "</code>"),
   "cr" =           c("<br >", ""),
-  "describe" =     c("<span class='describe'>", "</span>"),
   "dfn" =          c("<dfn>", "</dfn>"),
   "donttest" =     c("", ""),
   "dots" =         c("...", ""),
